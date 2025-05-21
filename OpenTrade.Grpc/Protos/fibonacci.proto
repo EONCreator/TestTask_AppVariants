@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "OpenTrade.Grpc";
+
+package fibonacci;
+
+service Fibonacci {
+  rpc GetPrevious (PreviousFibonacciRequest) returns (PreviousFibonacciReply);
+}
+
+message PreviousFibonacciRequest {
+  int32 n = 1;
+}
+
+message PreviousFibonacciReply {
+  string result = 1;
+}

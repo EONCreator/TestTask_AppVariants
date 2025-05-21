@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  grpc-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.grpc
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+
+  aspnetcore-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.aspnetcore
+    ports:
+      - "5000:80"
+    depends_on:
+      - grpc-service
